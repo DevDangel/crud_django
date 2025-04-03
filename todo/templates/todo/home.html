@@ -1,0 +1,9 @@
+{% extends 'todo/layout.html' %}
+{% block content %}
+    <h1>Lista de Tareas</h1>
+    <ul>
+        {% for tarea in tareas %}
+        <li> {{ tarea }} </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
