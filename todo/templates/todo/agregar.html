@@ -1,8 +1,8 @@
 {% extends 'todo/layout.html' %}
 {% block content %}
-<form action="POST">
+<form action="" method="POST">
     {% csrf_token %}
     {{form}}
-    <button>Agregar Tarea +</button>
+    <button type="submit">Agregar Tarea +</button>
 </form>
-{% endblock %}
+{% endblock %}  

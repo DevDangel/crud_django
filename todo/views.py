@@ -17,7 +17,6 @@ def agregar(request):
             return redirect('home')
     else:
         form = TareaForm()
-    context={'form':form}
-    return render(request,'todo/agregar.html',context)
+    return render(request,'todo/agregar.html',{'form':form})
 
 # Metodo para eliminar
