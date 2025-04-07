@@ -20,3 +20,7 @@ def agregar(request):
     return render(request,'todo/agregar.html',{'form':form})
 
 # Metodo para eliminar
+def eliminar(resquest,tarea_id):
+    tarea=Tarea.objects.get(id=tarea_id)
+    tarea.delete()
+    return redirect('home')                                                                 
