@@ -23,4 +23,17 @@ def agregar(request):
 def eliminar(resquest,tarea_id):
     tarea=Tarea.objects.get(id=tarea_id)
     tarea.delete()
-    return redirect('home')                                                                 
+    return redirect('home')      
+
+# Metodo para editar
+def editar(request,tarea_id):
+    tarea=Tarea.objects.get(id=tarea_id)  
+    if request.method=="POST":
+        form=TareaForm(request.POST,instance=tarea)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form=TareaForm(instance=tarea)
+    return render(request,"todo/editar.html", {"form":form})
+                                                    

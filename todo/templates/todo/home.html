@@ -1,11 +1,24 @@
 {% extends 'todo/layout.html' %}
 {% block content %}
-    <h1>Lista de Tareas</h1>
-    <ul>
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tarea</th>
+        <th scope="col">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
         {% for tarea in tareas %}
-        <li> {{ tarea }} </li>
+      <tr>
+        <th scope="row">{{tarea.id}}</th>
+        <td>{{tarea}} </td>
+        <td>
+            <a class="btn btn-danger btn-sm" href="{% url 'eliminar' tarea.id %}">Eliminar</a>
+            <a class="btn btn-primary btn-sm" href="{% url 'editar' tarea.id %}">Editar</a>
+        </td>
+      </tr>
         {% endfor %}
-    </ul>
-    <br><br>
-    <a href="http://127.0.0.1:8000/agregar/">Volver a agregar</a>
+    </tbody>
+  </table>
 {% endblock %}
